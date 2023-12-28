@@ -1,0 +1,84 @@
+@import "stylesheet.css";
+
+/* General setting */
+:root {
+  --yellow: #ffc727;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  background-color: var(--yellow);
+  font-family: "tt_chocolates_trlextralight";
+}
+
+/* image's box */
+
+.image-box {
+  padding: 2rem;
+  flex: 1 1 35%;
+  text-align: center;
+  color: #444;
+  position: relative;
+}
+
+h1 {
+  font-family: "tt_chocolates_trlbold";
+  margin-top: 5rem;
+  font-size: 6rem;
+}
+
+h1 + p {
+  font-size: 2rem;
+  margin: -1rem auto 7rem;
+}
+
+.circle {
+  width: 70%;
+  aspect-ratio: 1;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.illustration {
+  position: relative;
+  top: 1.3rem;
+}
+
+.circle-shadow {
+  width: 50%;
+  height: 3%;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 2rem auto;
+  filter: blur(7px);
+  mix-blend-mode: multiply;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.attribution a,
+.attribution a:visited {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+}
+
+main {
+  flex: 1 1 65%;
+  background-color: #fff;
+}
