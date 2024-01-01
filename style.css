@@ -4,7 +4,7 @@
 :root {
   --yellow: #ffc727;
   --dark-grey: #444;
-  --light-grey: #ddd;
+  --light-grey: #eee;
 }
 
 * {
@@ -14,9 +14,8 @@
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  background-color: var(--yellow);
   font-family: "tt_chocolates_trlextralight";
   color: var(--dark-grey);
 }
@@ -24,46 +23,40 @@
 /* image's box */
 
 .image-box {
-  padding: 2rem;
-  flex: 1 1 35%;
+  width: 35%;
+  padding: 3rem 0;
+  background-color: var(--yellow);
+  flex: none;
   text-align: center;
-
   position: relative;
 }
 
 h1 {
   font-family: "tt_chocolates_trlbold";
-  margin-top: 5rem;
-  font-size: min(5rem, 5vw);
+  font-size: max(5vw, 35px);
 }
 
 h1 + p {
-  font-size: min(2rem, 3vw);
-  margin: -1rem auto 7rem;
+  font-size: max(1.5vw, 13px);
+  margin: -1vw auto 0;
 }
 
 .circle {
-  width: max(70%, 170px);
+  width: clamp(150px, 70%, 27vw);
   aspect-ratio: 1;
   background-color: #fff;
   border-radius: 50%;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .illustration {
   position: relative;
-  top: 1.3rem;
-}
-
-.circle-shadow {
-  width: 50%;
-  height: 1rem;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 2rem auto;
-  filter: blur(7px);
-  mix-blend-mode: multiply;
+  top: 10px;
 }
 
 .attribution {
@@ -84,35 +77,98 @@ h1 + p {
 /* main's box */
 
 main {
-  flex: 1 1 65%;
-  background-color: #fff;
-  padding: 3rem 5vw;
+  width: 65%;
+  flex: none;
+  background-color: var(--light-grey);
+  padding: 5vw 5vw 2vw;
 }
 
 .description {
   font-family: "tt_chocolates_trlbold";
-  font-size: min(5rem, 5vw);
-  margin-top: 4.5rem;
-  margin-bottom: 5rem;
+  font-size: max(3vw, 30px);
+  margin-bottom: 3rem;
 }
 
 /* form */
+form {
+  margin-bottom: 1rem;
+}
 
 fieldset {
   width: 100%;
-  border: 5px solid var(--dark-grey);
+  border: none;
   border-radius: 5px;
-  background-color: var(--light-grey);
+  background-color: #fff;
   padding: 2rem;
   display: flex;
-  column-gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 15px;
+  column-gap: 30px;
 }
 
 legend {
   font-family: "tt_chocolates_trlbold";
-  font-size: 2rem;
-  border: 5px solid var(--dark-grey);
+  font-size: 1.5rem;
   border-radius: 5px;
   background-color: var(--yellow);
   padding: 0.2rem 1rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* color: black !important; */
+  /* -webkit-text-fill-color: black !important; */
+  -webkit-box-shadow: inset 1px 1px 2px #aaa,
+    0 0 0 1000px var(--light-grey) inset !important;
+  /* -webkit-background-clip: text !important; */
+  /* background-clip: text !important; */
+}
+
+.input-container {
+  width: 47%;
+  min-width: 200px;
+  flex: auto;
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  input {
+    width: 100%;
+    height: 2rem;
+    background-color: var(--light-grey);
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 2px #aaa;
+    padding: 10px;
+  }
+  input:focus {
+    outline: solid 3px var(--yellow);
+    border: none;
+    outline-offset: -2px;
+  }
+}
+
+button {
+  width: 100%;
+  border: none;
+  height: 2rem;
+  border-radius: 5px;
+  background-color: var(--yellow);
+  cursor: pointer;
+  font-family: "tt_chocolates_trlbold";
+  color: var(--dark-grey);
+  font-size: 1.2rem;
+}
+
+button:hover {
+  background-color: #ffa600;
+}
+
+button:active {
+  background-color: #ffa600;
+  box-shadow: inset 2px 2px 2px #4445, inset -2px -2px 2px #fff9;
 }
