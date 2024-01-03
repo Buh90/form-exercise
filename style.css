@@ -16,6 +16,7 @@
 .container {
   min-height: 100vh;
   display: flex;
+  flex-wrap: wrap;
   font-family: "tt_chocolates_trlextralight";
   color: var(--dark-grey);
 }
@@ -23,12 +24,16 @@
 /* image's box */
 
 .image-box {
-  width: 35%;
+  width: max(35%, 250px);
+  min-height: 10rem;
   padding: 3rem 0;
   background-color: var(--yellow);
-  flex: none;
+  flex: 1 0 auto;
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
@@ -42,29 +47,17 @@ h1 + p {
 }
 
 .circle {
-  width: clamp(150px, 70%, 27vw);
+  width: clamp(150px, 70%, 50vw);
   aspect-ratio: 1;
   background-color: #fff;
   border-radius: 50%;
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  margin: 2rem auto;
   overflow: hidden;
 }
 
 .illustration {
   position: relative;
   top: 10px;
-}
-
-.attribution {
-  position: absolute;
-  bottom: 3rem;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
 }
 
 .attribution a,
@@ -78,7 +71,7 @@ h1 + p {
 
 main {
   width: 65%;
-  flex: none;
+  flex: 1 0 auto;
   background-color: var(--light-grey);
   padding: 5vw 5vw 2vw;
 }
@@ -128,6 +121,7 @@ input:-webkit-autofill:active {
 }
 
 .input-container {
+  position: relative;
   width: 47%;
   min-width: 200px;
   flex: auto;
@@ -152,6 +146,27 @@ input:-webkit-autofill:active {
   }
 }
 
+input.valid {
+  box-shadow: inset 1px 1px 2px #aaa, inset 0 0 0 1000px rgb(30, 255, 0, 0.1),
+    0 0 0 1000px var(--light-grey) inset !important;
+  border: solid 2px greenyellow;
+}
+
+input.invalid {
+  box-shadow: inset 1px 1px 2px #aaa, inset 0 0 0 1000px #f002,
+    0 0 0 1000px var(--light-grey) inset !important;
+  border: solid 2px red;
+}
+
+.error {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: red;
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
 button {
   width: 100%;
   border: none;
@@ -159,7 +174,8 @@ button {
   border-radius: 5px;
   background-color: var(--yellow);
   cursor: pointer;
-  font-family: "tt_chocolates_trlbold";
+  font-family: "tt_chocolates_trlextralight";
+  font-weight: 700;
   color: var(--dark-grey);
   font-size: 1.2rem;
 }
@@ -171,4 +187,15 @@ button:hover {
 button:active {
   background-color: #ffa600;
   box-shadow: inset 2px 2px 2px #4445, inset -2px -2px 2px #fff9;
+}
+
+/* Media query */
+@media screen and (max-width: 730px) {
+  h1 {
+    font-size: 15vw;
+  }
+  h1 + p {
+    font-size: 4vw;
+    margin-top: -1rem;
+  }
 }
